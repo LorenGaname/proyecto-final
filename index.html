@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Album Store</title>
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <h1>Album Store</h1>
+    <div class="albums-container" id="albums-container"></div>
+    <button id="cart-button">Cart (<span id="cart-count">0</span>)</button>
+    <div id="cart-overlay" class="cart-overlay">
+      <div class="cart">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="close-cart-button">Close</button>
+      </div>
+    </div>
+    <script src="/app/index.js"></script>
+  </body>
+</html>

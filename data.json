@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "All eyez on me",
+    "artist": "2PAC",
+    "price": 30.99,
+    "image": "/IMG/Alleyezonme.jpg",
+    "description": "All Eyez on Me es el cuarto álbum de estudio del rapero 2Pac, lanzado el 13 de febrero de 1996. Fue el último álbum de 2Pac con vida, ya que murió exactamente 7 meses después, el 13 de septiembre de 1996. Es el primer doble álbum de rap en la historia, y Disco de Diamante."
+  },
+  {
+    "id": 2,
+    "title": "The massacre",
+    "artist": "50CENT",
+    "price": 29.99,
+    "image": "/IMG/themassacre50.png",
+    "description": "The Massacre es el segundo álbum de estudio del rapero jamaiquino 50 Cent, publicado el 3 de marzo del año 2005. Originalmente en un principio se iba a llamar The St. Valentine's Day Massacre."
+  },
+  {
+    "id": 3,
+    "title": "Ready to Die",
+    "artist": "The notorius B.I.G",
+    "price": 29.99,
+    "image": "/IMG/readytodie.jpg",
+    "description": "Ready to Die es el álbum de estudio de debut del rapero estadounidense The Notorious B.I.G., lanzado el 13 de septiembre de 1994 bajo los sellos discográficos Bad Boy Records y Arista Records."
+  },
+  {
+    "id": 4,
+    "title": "The Chronic",
+    "artist": "Dr. Dre",
+    "price": 24.99,
+    "image": "/IMG/TheChronic.jpg",
+    "description": "The Chronic es el álbum debut como solista del rapero estadounidense, Dr. Dre, publicado el 15 de diciembre de 1992 a través de la discográfica Death Row Records y distribuido por Priority Records. Las sesiones de grabación del álbum tuvieron lugar en junio de 1992 en los estudios de Death Row en Los Ángeles"
+  },
+  {
+    "id": 5,
+    "title": "Tha blue carpet treatment",
+    "artist": "Snoop Dogg",
+    "price": 29.99,
+    "image": "/IMG/TBCT.jpg",
+    "description": "Tha Blue Carpet Treatment es el octavo álbum como solista del rapero Snoop Dogg. Salió a la venta el 21 de noviembre de 2006"
+  },
+  {
+    "id": 6,
+    "title": "Straight Outta Compton",
+    "artist": "N.W.A",
+    "price": 39.99,
+    "image": "/IMG/StraightOuttaCompton.jpg",
+    "description": "Straight Outta Compton es el primer álbum de estudio del grupo estadounidense NWA. Fue lanzado el 8 de agosto de 1988 bajo la discográfica Universal Music Group. Fue producido por, Arabian Prince, Doctor Dre y DJ Yella y las letras fueron escritas por Ice Cube y MC Ren, en su mayoría. (Leyenda del rap mundial)"
+  }
+]
