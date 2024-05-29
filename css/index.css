@@ -15,8 +15,8 @@ h1 {
 
 .albums-container {
   display: flex;
-  flex-wrap: wrap; /* Permitir que los álbumes se envuelvan a la siguiente línea si no caben en la misma */
-  justify-content: space-between; /* Distribuir uniformemente el espacio entre los álbumes */
+  flex-wrap: wrap; 
+  justify-content: space-between;
 }
 
 .album {
@@ -110,7 +110,7 @@ h1 {
   display: block;
 }
 
-/* Estilos generales para todos los botones */
+
 button {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -121,19 +121,18 @@ button {
   transition: background-color 0.3s ease;
 }
 
-/* Estilo para el botón "Add to Cart" */
+
 .add-to-cart-btn {
-  background-color: #4caf50; /* Verde */
+  background-color: #4caf50;
   color: white;
 }
 
 .add-to-cart-btn:hover {
-  background-color: #45a049; /* Verde oscuro */
+  background-color: #45a049;
 }
 
-/* Estilo para el botón "Purchase" */
 #purchase-button {
-  background-color: #008cba; /* Azul */
+  background-color: #008cba; 
   color: white;
   position: fixed;
   bottom: 1px;
@@ -142,14 +141,14 @@ button {
 }
 
 #purchase-button:hover {
-  background-color: #007bb5; /* Azul oscuro */
+  background-color: #007bb5; 
 }
 
 #close-cart-button:hover {
-  background-color: #d32f2f; /* Rojo oscuro */
+  background-color: #d32f2f; 
 }
 
-/* Estilos adicionales para mejorar el diseño del carrito */
+
 #cart-overlay {
   position: fixed;
   top: 0;
@@ -188,7 +187,7 @@ button {
 }
 
 #cart-items li button {
-  background-color: #f44336; /* Rojo */
+  background-color: #f44336; 
   color: white;
   font-size: 12px;
   padding: 5px;
@@ -196,7 +195,7 @@ button {
 }
 
 #cart-items li button:hover {
-  background-color: #d32f2f; /* Rojo oscuro */
+  background-color: #d32f2f; 
 }
 
 #cart-total {

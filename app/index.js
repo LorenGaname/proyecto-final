@@ -99,11 +99,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   purchaseButton.addEventListener("click", () => {
-    sweetalert().then(() => {
-      cart = [];
-      updateCart();
-      console.log("Cart should be empty now:", cart);
-    });
+    if (cart.length === 0) {
+      Swal.fire({
+        title: "El carrito está vacío",
+        text: "Por favor, agrega álbumes al carrito antes de proceder con la compra.",
+        icon: "warning",
+      });
+    } else {
+      sweetalert().then(() => {
+        cart = [];
+        updateCart();
+        console.log("Cart should be empty now:", cart);
+      });
+    }
   });
 
   const saveCartToLocalStorage = () => {
@@ -124,17 +132,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function sweetalert() {
   return Swal.fire({
-    title: "¿Estás seguro que quieres comprar la entrada?",
+    title: "¿Estás seguro que quieres comprar estos álbumes?",
     icon: "question",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Confirmar!",
+    confirmButtonText: "Confirmar",
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
       return Swal.fire({
-        title: "Comprado",
+        title: "Compra realizada",
         text: "¡Muchas gracias por confiar en nosotros!",
         icon: "success",
       });
