@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartItems = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
   const closeCartButton = document.getElementById("close-cart-button");
+  const purchaseButton = document.getElementById("purchase-button");
   let albums = [];
   let cart = [];
 
@@ -22,15 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const albumDiv = document.createElement("div");
       albumDiv.classList.add("album");
       albumDiv.innerHTML = `
-                <img src="${album.image}" alt="${album.title}">
-                <h3>${album.title}</h3>
-                <p>Artist: ${album.artist}</p>
-                <p>Price: $${album.price.toFixed(2)}</p>
-                <p>Description: ${album.description}</p>
-                <button class="add-to-cart-btn" data-id="${
-                  album.id
-                }">Add to Cart</button>
-            `;
+        <img src="${album.image}" alt="${album.title}">
+        <h3>${album.title}</h3>
+        <p>Artist: ${album.artist}</p>
+        <p>Price: $${album.price.toFixed(2)}</p>
+        <p>Description: ${album.description}</p>
+        <button class="add-to-cart-btn" data-id="${
+          album.id
+        }">Add to Cart</button>
+      `;
       albumsContainer.appendChild(albumDiv);
     });
   };
@@ -38,20 +39,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateCart = () => {
     renderCart();
     updateCartCount();
+    saveCartToLocalStorage();
   };
 
   const renderCart = () => {
     cartItems.innerHTML = "";
     let totalPrice = 0;
 
-    cart.forEach((album) => {
+    cart.forEach((album, index) => {
       const cartItem = document.createElement("li");
       cartItem.innerHTML = `
-                <span>${album.title} - $${album.price.toFixed(2)}</span>
-                <button class="remove-from-cart-btn" data-id="${
-                  album.id
-                }">Remove</button>
-            `;
+        <span>${album.title} - $${album.price.toFixed(2)}</span>
+        <button class="remove-from-cart-btn" data-index="${index}">Remove</button>
+      `;
       cartItems.appendChild(cartItem);
       totalPrice += album.price;
     });
@@ -85,16 +85,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cartOverlay.addEventListener("click", (event) => {
     if (event.target.classList.contains("remove-from-cart-btn")) {
-      const albumId = parseInt(event.target.getAttribute("data-id"));
-      cart = cart.filter((album) => album.id !== albumId);
+      event.stopPropagation();
+      const albumIndex = parseInt(event.target.getAttribute("data-index"));
+      cart.splice(albumIndex, 1);
       updateCart();
     }
   });
 
-  // Close cart when clicking outside
   window.addEventListener("click", (event) => {
     if (!cartOverlay.contains(event.target) && event.target !== cartButton) {
       cartOverlay.classList.remove("show-cart");
     }
   });
+
+  purchaseButton.addEventListener("click", () => {
+    sweetalert().then(() => {
+      cart = [];
+      updateCart();
+      console.log("Cart should be empty now:", cart);
+    });
+  });
+
+  const saveCartToLocalStorage = () => {
+    console.log("Saving cart to localStorage:", cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
+  const loadCartFromLocalStorage = () => {
+    const cartFromStorage = localStorage.getItem("cart");
+    if (cartFromStorage) {
+      cart = JSON.parse(cartFromStorage);
+      updateCart();
+    }
+  };
+
+  loadCartFromLocalStorage();
 });
+
+function sweetalert() {
+  return Swal.fire({
+    title: "¿Estás seguro que quieres comprar la entrada?",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar!",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      return Swal.fire({
+        title: "Comprado",
+        text: "¡Muchas gracias por confiar en nosotros!",
+        icon: "success",
+      });
+    }
+  });
+}
